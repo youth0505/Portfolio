@@ -17,6 +17,7 @@
 | 你想做什么 | 首先打开 | 还要同步检查 |
 |---|---|---|
 | 改个人介绍、教育、技能、联系方式 | `index.html` | 手机上文字是否溢出 |
+| 更新中英文文案 | `language.js` | 主页、摄影页中的静态及动态文字是否同步 |
 | 改已有经历 | `script.js` → `experiences` | HTML 中第一条经历的初始文案 |
 | 增减经历节点 | `index.html` + `script.js` | `styles.css` 中固定四节点的布局与进度线 |
 | 改主页/摄影页的颜色、字号、间距 | `styles.css` | 重复规则、手机端规则、另一页面是否被影响 |
@@ -31,12 +32,18 @@
 **记住当前三个页面的区别：**
 
 ```text
-index.html        → styles.css + script.js
-photography.html  → styles.css + photography.js
-Dashboard 仓库的 `f1-dashboard.html` → 独立页面，CSS 写在页面内部；当前没有 JavaScript
+index.html        → styles.css + script.js + language.js
+photography.html  → styles.css + photography.js + language.js
+Dashboard 仓库的 `index.html` 与 `f1-dashboard.html` → 独立页面，共用 Dashboard 仓库的 language.js
 ```
 
 主页和摄影页共享外观，但脚本分别维护。F1 项目在 Portfolio 主页保留一份项目预览和一个进入链接；独立页面及其样式由 `youth0505/Dashboard` 仓库维护。
+
+### 中英文切换
+
+- Portfolio 主页与摄影页共用根目录的 `language.js`；Dashboard 集合页与 F1 页使用 Dashboard 仓库自己的 `language.js`。
+- 修改页面文案时，同步更新相应 `language.js` 中的中英文映射；`script.js` 和 `photography.js` 生成的动态文案也要有对应映射。
+- 两个站点使用 `site-language` 保存语言选择，同一浏览器访问时会沿用上次选择。按钮外观由 `styles.css` 和 Dashboard 页面各自的内嵌 CSS 控制。
 
 ## 2. 每次更新的标准流程
 
